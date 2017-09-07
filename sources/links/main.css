@@ -36,3 +36,12 @@ body.soyuz stats { color:#555}
 body.soyuz stats b { background:rgba(0,0,0,0); color:#fc533e; }
 body.soyuz scrollbar { background:#fc533e;  }
 body.soyuz ::selection { background:#777; color:#fff; opacity:1.0;}
+
+
+body.blur {  background-color: rgba(0,0,0,0)!important; }
+body.blur navi{ background: rgba(0,0,0,0.5); color:#ccc; border-right: 1px solid #222; }
+body.blur textarea { color:#eee; }
+body.blur stats { }
+body.blur stats b { background:#111; }
+body.blur scrollbar { background:#ccc;  }
+body.blur ::selection { background:#888; color:#fff; opacity:1.0;}

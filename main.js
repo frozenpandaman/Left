@@ -2,6 +2,8 @@ const {app, BrowserWindow, webFrame, Menu, ipcRenderer} = require('electron')
 const path = require('path')
 const url = require('url')
 require('dotenv').config();
+const electronVibrancy = require('electron-vibrancy');
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -21,7 +23,6 @@ app.on('ready', () => {
     var nativeHandleBuffer = win.getNativeWindowHandle();
 
     win.loadURL(`file://${__dirname}/sources/index.html`)
-
     // Create our menu entries so that we can use MAC shortcuts
     Menu.setApplicationMenu(Menu.buildFromTemplate([
       {
@@ -41,6 +42,8 @@ app.on('ready', () => {
 
     win.on('ready-to-show',function() {
 
+      // change the value for different transparency options
+      electronVibrancy.SetVibrancy(win, 9);
       win.show();
 
     })

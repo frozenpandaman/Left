@@ -125,7 +125,7 @@
 
 .etabs-views {
     border-top: 1px solid #aaa;
-    height: calc(100vh - 20px);
+    height: calc(100vh - 19px);
 }
 
 .etab-view {
@@ -141,3 +141,18 @@
   opacity:.5;
 }
 .etabs-tabgroup.noir .etabs-tab.active { background:#212121; color:#FFF; opacity:1 }
+
+
+/* noir-theme */
+.etabs-tabgroup.blur { background-color:rgba(0,0,0,0.2); }
+.etabs-tabgroup.blur .etabs-tab {
+  /*background: linear-gradient(to bottom, rgba(120,120,120,1) 0%,rgba(24,24,24,1) 100%);*/
+  background-color: rgba(0,0,0,0.2);
+  color: #f8f8f8;
+  opacity:.5;
+}
+.etabs-tabgroup.blur .etabs-tab.active { background:rgba(0,0,0,0.4); color:#FFF; opacity:1 }
+
+.etabs-tabgroup.blur + .etabs-views {
+  border-top: 1px solid rgba(255,255,255,0.1);
+}

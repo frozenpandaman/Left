@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "pack:osx": "electron-packager . Left --platform=darwin --arch=x64 --out builds/osx --overwrite --electron-version=1.7.5 --icon=icon.icns"
+    "start": "electron . --electron-version=1.4.5",
+    "pack:osx": "electron-packager . Left --platform=darwin --arch=x64 --out builds/osx --overwrite --electron-version=1.4.5 --icon=icon.icns"
   },
   "devDependencies": {
     "electron": "^1.7.5",
@@ -13,6 +13,7 @@
   "dependencies": {
     "dotenv": "^4.0.0",
     "electron-packager": "^8.4.0",
-    "electron-tabs": "^0.7.1"
+    "electron-tabs": "^0.7.1",
+    "electron-vibrancy": "^0.1.3"
   }
 }
