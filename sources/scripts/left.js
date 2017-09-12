@@ -227,12 +227,16 @@ function Left()
 
   this.save = function()
   {
+    function pad(d) {
+      return (d < 10) ? '0' + d.toString() : d.toString();
+    }
+
     var text = left.textarea_el.value;
     var blob = new Blob([text], {type: "text/plain;charset=" + document.characterSet});
-    var d = new Date(), e = new Date(d);
-    var since_midnight = e - d.setHours(0,0,0,0);
-    var timestamp = parseInt((since_midnight/864) * 10);
-    saveAs(blob, (left.title ? left.title : "backup")+"."+timestamp+".txt");
+    var d = new Date();
+    var yyyymmdd = d.getFullYear().toString() + pad((d.getMonth()+1).toString()) + pad(d.getDay().toString());
+    var hhmm = pad(d.getHours().toString()) + pad(d.getMinutes().toString());
+    saveAs(blob, (left.title ? left.title : "")+yyyymmdd+"-"+hhmm+".txt");
   }
 
   this.go_to_line = function(line_id)
@@ -316,13 +320,7 @@ function Left()
 
   this.splash = function()
   {
-    var text = "# Welcome\n\n";
-    text += "Left is a simple, minimalist, open-source and cross-platform text editor. \n\n";
-    text += "## Features\n\n- Create markers by beginning lines with # or ##.\n- Load a text file by dragging it here.\n- Save a text file with ctrl+s, or cmd+s.\n- The synonyms dictionary contains "+Object.keys(left.dictionary.synonyms).length+" common words.\n\n";
-    text += "## Details\n\n- #L, stands for Lines.\n- #W, stands for Words.\n- #V, stands for Vocabulary, or unique words.\n- #C, stands for Characters.\n\n";
-    text += "## Controls\n\n- tab                  autocomplete.\n- ctrl+s               save/export.\n- ctrl+]               Jump to next marker.\n- ctrl+[               Jump to previous marker.\n- ctrl+n               Clear.\n- ctrl+shift+del       Reset.\n\n";
-    text += "## Options\n\n~ left.title=welcome   set file name for export.\n~ left.theme=blanc     set theme(blanc, noir, pale)\n~ left.suggestions=on  toggle suggestions.\n~ left.synonyms=on     toggle synonyms\n\n";
-    text += "## Enjoy!\n\n- https://github.com/hundredrabbits/Left";
+    var text = "";
 
     return text;
   }

@@ -1,5 +1,7 @@
 const TabGroup = require("electron-tabs");
 
+var counter = 1;
+
 function Wrap()
 {
 
@@ -9,10 +11,11 @@ function Wrap()
   this.start = function()
   {
     let tab = tabGroup.addTab({
-        title: "Left",
-        src: "page.html",
+        title: counter.toString(),
+        src: "page.html#noir",
         visible: true,
-        active: true
+        active: true,
+        closable: false
     });
     // add attributes to the webview
     tab.webview.setAttribute('nodeintegration','');
@@ -39,7 +42,7 @@ function Wrap()
 
   this.close = function()
   {
-    tabGroup.getActiveTab().close();
+    tabGroup.getActiveTab().close(true);
   }
 
   this.theme = function(theme_name)
@@ -63,12 +66,14 @@ document.onkeydown = function key_down(e)
   // new tab on T
   if(e.key == "t" && (e.ctrlKey || e.metaKey)){
     e.preventDefault();
+    counter++;
     wrap.start();
   }
   // close tab on W
   if(e.key == "w" && (e.ctrlKey || e.metaKey)){
     e.preventDefault();
-    wrap.close();
+    counter--;
+    wrap.close(true);
   }
   // tab switch
   for(i=0; i < 10; i++){
