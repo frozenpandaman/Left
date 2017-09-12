@@ -2,6 +2,14 @@
 
 Don't forget to ```npm cache clean```!
 
+### Build macOS
+
+```
+npm run pack:osx
+```
+
+([details](https://github.com/hundredrabbits/Left/pull/14#issuecomment-327838832))
+
 ### Build Linux64 / Darwin64 / Windows64(Offsite)
 
 ```
